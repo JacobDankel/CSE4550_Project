@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -47,7 +47,11 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 21
+=======
+  controlID: 128
+>>>>>>> parent of cf74093 (new bean)
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -72,7 +76,11 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 22
+=======
+  controlID: 129
+>>>>>>> parent of cf74093 (new bean)
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -174,9 +182,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
     height: 997
   m_MinSize: {x: 875, y: 300}
+=======
+    width: 1904
+    height: 981
+  m_MinSize: {x: 875, y: 542}
+>>>>>>> parent of cf74093 (new bean)
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -252,7 +266,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 23
+=======
+  controlID: 130
+>>>>>>> parent of cf74093 (new bean)
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -277,7 +295,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 24
+=======
+  controlID: 131
+>>>>>>> parent of cf74093 (new bean)
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -440,15 +462,25 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: 58
+<<<<<<< HEAD
   m_LastProjectPath: C:\Users\Alex\OneDrive\Documents\CSE4550_pro\CSE4550_Project\CSE4550
     Project
+=======
+  m_LastProjectPath: C:\Users\tjche\Documents\GitHub\CSE4550_Project\CSE4550 Project
+>>>>>>> parent of cf74093 (new bean)
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 24430000
     m_LastClickedID: 17188
     m_ExpandedIDs: 000000002443000000ca9a3b
+=======
+    m_SelectedIDs: 16430000
+    m_LastClickedID: 17174
+    m_ExpandedIDs: 000000001643000000ca9a3b
+>>>>>>> parent of cf74093 (new bean)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -476,7 +508,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000024430000
+=======
+    m_ExpandedIDs: 0000000016430000
+>>>>>>> parent of cf74093 (new bean)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -597,9 +633,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 86faffff
       m_LastClickedID: -1402
       m_ExpandedIDs: 5efbffff
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 5cfbffff
+>>>>>>> parent of cf74093 (new bean)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -661,7 +703,11 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 0.3, y: -0.00999999, z: 0}
     speed: 2
+<<<<<<< HEAD
     m_Value: {x: 0.3, y: -0.009999952, z: -0.00000005267375}
+=======
+    m_Value: {x: 0.054985747, y: 0.61588466, z: -0.87133497}
+>>>>>>> parent of cf74093 (new bean)
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -714,7 +760,11 @@ MonoBehaviour:
   m_Size:
     m_Target: 1.1224972
     speed: 2
+<<<<<<< HEAD
     m_Value: 1.1224973
+=======
+    m_Value: 3.439982
+>>>>>>> parent of cf74093 (new bean)
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -805,23 +855,23 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 0
+      y: 21
       width: 1191
-      height: 639
-    m_Scale: {x: 0.59166664, y: 0.59166664}
-    m_Translation: {x: 595.5, y: 319.5}
+      height: 618
+    m_Scale: {x: 0.57222223, y: 0.57222223}
+    m_Translation: {x: 595.5, y: 309}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1006.47894
+      x: -1040.6796
       y: -540
-      width: 2012.9579
+      width: 2081.3591
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.59166664
+  m_defaultScale: 0.57222223
   m_LastWindowPixelSize: {x: 1191, y: 639}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
