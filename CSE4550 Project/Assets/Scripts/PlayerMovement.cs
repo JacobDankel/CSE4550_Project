@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Rigidbody2D controller;
     [SerializeField]
+    private BoxCollider2D boxCollider;
+    [SerializeField]
     private LayerMask groundLayer;
     [SerializeField]
     private float speed = 4f, jumpForce = 10f, jumpCushion = 1f, jumpTime = .35f;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         tran = GetComponent<Transform>();
         controller = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -37,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
             controller.velocity = Vector2.up * jumpForce * Time.deltaTime;
         }
 
-        //if jump is held down, then player will continue to rise up to a certain point indicated by jumpTimeCounter
+        //if jump is held down, then player will continue to rise up to a certain point indicated by jumpTimeCounter which is initialized by jumpTime
         if (Input.GetButton("Jump") && isJumping == true)
         {
             if (jumpTimeCounter > 0)
@@ -58,21 +61,21 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /*
-     * Uses raycast to test if the transform is on the ground. 
-     * jumpCushion is to allow you to jump slightly earlier than sprite hits the ground. It is the length of the raycast from the center of the object (tran.position)
+     * Uses two raycasts on either side of the collider to test if it is on the ground. 
+     * jumpCushion is to allow you to jump slightly earlier than sprite hits the ground.
      * groundLayer is a Layermask so that the Raycast only hits colliders in the "Ground" layer
      */
     private bool IsGrounded()
     {
-        
-        //IMPORTANT: Currently does not work with ledges. probably need to have two raycasts for either side and use || to determine if one is true, its late and too tired now - tim
-        RaycastHit2D hit = Physics2D.Raycast(tran.position, Vector2.down, jumpCushion, groundLayer);
-        if (hit.collider != null)
+        Vector3 leftExtent = boxCollider.bounds.center + Vector3.left * boxCollider.bounds.extents.x; //left center point of boxCollider
+        Vector3 rightExtent = boxCollider.bounds.center + Vector3.right * boxCollider.bounds.extents.x; //right center point of boxCollider
+
+        RaycastHit2D lHit = Physics2D.Raycast(leftExtent, Vector2.down, jumpCushion, groundLayer);
+        RaycastHit2D rHit = Physics2D.Raycast(rightExtent, Vector2.down, jumpCushion, groundLayer);
+        if (lHit.collider != null || rHit.collider != null)
         {
-            //Debug.Log("raycast True");
             return true;
         }
-        //Debug.Log("raycast False");
         return false;
     }
 }
