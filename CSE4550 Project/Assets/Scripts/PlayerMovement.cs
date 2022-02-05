@@ -31,7 +31,20 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
+        jumping();
+    }
 
+    private void FixedUpdate()
+    {
+        controller.velocity = new Vector2(horizontalMove * speed, controller.velocity.y);
+    }
+
+
+    /*
+     * Lets the player hold the button longer to jump higher. tap jump button = shorter jump.
+     */
+    private void jumping()
+    {
         //initial jump
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
@@ -53,11 +66,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        controller.velocity = new Vector2(horizontalMove * speed, controller.velocity.y);
     }
 
     /*
