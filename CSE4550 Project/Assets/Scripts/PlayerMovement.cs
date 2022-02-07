@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
     [SerializeField]
-    private float speed = 4f, jumpForce = 10f, jumpCushion = 1f, jumpTime = .35f;
+    public float speed = 4f, jumpForce = 10f, jumpCushion = 1f, jumpTime = .35f;
 
     private float jumpTimeCounter;
     private bool isJumping;
