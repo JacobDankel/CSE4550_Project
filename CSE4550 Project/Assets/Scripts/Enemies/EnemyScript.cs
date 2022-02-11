@@ -11,9 +11,11 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     protected BoxCollider2D boxCollider;
     [SerializeField]
-    protected LayerMask groundLayer, damageLayer;
+    protected LayerMask groundLayer, damageLayer, playerLayer;
     [SerializeField]
     protected float speed = 2f, direction = 1, health = 2;
+    [SerializeField]
+    protected float extraRaycastLength = 6f; //This is the extra length from the rigidbody that the raycast extends to detect the ground. It should be just below the rb in most cases.
 
     // Start is called before the first frame update
     void Start()
@@ -60,10 +62,9 @@ public class EnemyScript : MonoBehaviour
     {
         Vector3 leftExtent = boxCollider.bounds.center + Vector3.left * boxCollider.bounds.extents.x; //left center point of boxCollider
         Vector3 rightExtent = boxCollider.bounds.center + Vector3.right * boxCollider.bounds.extents.x; //right center point of boxCollider
-        float extra = 2f; //so that the third parameter is just outside of the collider, *** source of glitchiness if not tuned correctly.
 
-        RaycastHit2D lHit = Physics2D.Raycast(leftExtent, Vector2.down, leftExtent.y + extra, groundLayer);
-        RaycastHit2D rHit = Physics2D.Raycast(rightExtent, Vector2.down, rightExtent.y + extra, groundLayer);
+        RaycastHit2D lHit = Physics2D.Raycast(leftExtent, Vector2.down, leftExtent.y + extraRaycastLength, groundLayer);
+        RaycastHit2D rHit = Physics2D.Raycast(rightExtent, Vector2.down, rightExtent.y + extraRaycastLength, groundLayer);
 
         float left = -.01f;
         float right = .01f;

@@ -14,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Enemy
   - Ground
   - Damage
-  - 
+  - Enemy Damage
   - 
   - 
   - 
@@ -41,15 +41,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: BackGround
     uniqueID: 410618355
+    locked: 0
+  - name: Characters
+    uniqueID: 1459411921
+    locked: 0
+  - name: Hazards
+    uniqueID: 2540835595
     locked: 0
   - name: Ground
     uniqueID: 3654022427
     locked: 0
-  - name: Characters
-    uniqueID: 1459411921
+  - name: Default
+    uniqueID: 0
     locked: 0
