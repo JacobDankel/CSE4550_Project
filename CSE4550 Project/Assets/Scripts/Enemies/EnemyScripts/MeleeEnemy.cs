@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemy : EnemyScript
+public class MeleeEnemy : EnemyClass
 {
     [SerializeField]
     private Animator anim;
@@ -28,7 +28,6 @@ public class MeleeEnemy : EnemyScript
         patrol();
         takeDamage(1);
         attack();
-
     }
 
     private void FixedUpdate()
@@ -79,7 +78,5 @@ public class MeleeEnemy : EnemyScript
             isCurrentlyAttacking = false;
         }
     }
-
-
 }
 
