@@ -53,6 +53,9 @@ public class PlayerMovement : MonoBehaviour
         if(Mathf.Abs(controller.velocity.x) > 0)
         {
             Debug.Log("Moving Right");
+        } 
+        else if(Mathf.Abs(controller.velocity.x) < 0)
+        {
             Debug.Log("Moving Left");
         }
     }
