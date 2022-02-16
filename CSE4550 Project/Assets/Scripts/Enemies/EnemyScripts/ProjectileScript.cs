@@ -8,9 +8,15 @@ public class ProjectileScript : MonoBehaviour
     private float speed = 10f;
     [SerializeField]
     public Rigidbody2D rb2d;
+    public float destroyTime = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
         rb2d.velocity = transform.right * speed;
+    }
+
+    private void LateUpdate()
+    {
+        Destroy(gameObject, destroyTime);           //Destroys Projectile Gameobject after destroyTime has elapsed on creation.
     }
 }

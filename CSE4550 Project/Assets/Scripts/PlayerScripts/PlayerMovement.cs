@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Rigidbody2D controller;
     [SerializeField]
-    private BoxCollider2D boxCollider;
+    private CapsuleCollider2D capCollider;
     [SerializeField]
     private LayerMask groundLayer;
     [SerializeField]
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         //Grab references for rigidbody and animator from body 
         tran = GetComponent<Transform>();
         controller = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        capCollider = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -50,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         controller.velocity = new Vector2(horizontalMove * speed, controller.velocity.y);
+        if(Mathf.Abs(controller.velocity.x) > 0)
+        {
+            Debug.Log("Moving Right");
+            Debug.Log("Moving Left");
+        }
     }
 
 
@@ -88,8 +93,8 @@ public class PlayerMovement : MonoBehaviour
         */
     bool IsGrounded()
     {
-        Vector3 leftExtent = boxCollider.bounds.center + Vector3.left * boxCollider.bounds.extents.x; //left center point of boxCollider
-        Vector3 rightExtent = boxCollider.bounds.center + Vector3.right * boxCollider.bounds.extents.x; //right center point of boxCollider
+        Vector3 leftExtent = capCollider.bounds.center + Vector3.left * capCollider.bounds.extents.x; //left center point of capCollider
+        Vector3 rightExtent = capCollider.bounds.center + Vector3.right * capCollider.bounds.extents.x; //right center point of capCollider
 
         RaycastHit2D lHit = Physics2D.Raycast(leftExtent, Vector2.down, jumpCushion, groundLayer);
         RaycastHit2D rHit = Physics2D.Raycast(rightExtent, Vector2.down, jumpCushion, groundLayer);
