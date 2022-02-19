@@ -15,7 +15,10 @@ public class EnemyClass : MonoBehaviour
     [SerializeField]
     protected float speed = 2f, direction = 1f, health = 2f, viewRange = 10f;
     [SerializeField]
-    protected float extraRaycastLength = 6f; //This is the extra length from the rigidbody that the raycast extends to detect the ground. It should be just below the rb in most cases.
+    protected float extraRaycastLength = 6f;// This is the extra length from the rigidbody that the raycast extends to detect the ground. It should be just below the rb in most cases.
+
+    public float damage = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +33,15 @@ public class EnemyClass : MonoBehaviour
     }
 
 
-    protected void takeDamage(float damage)
+    protected void takeDamage(float _damage)
     {
         if (boxCollider.IsTouchingLayers(damageLayer))
         {
-            health -= damage;
+            health -= _damage;
         }
         if (health == 0)
         {
-            Debug.Log("goomba ded");
+            //Debug.Log("goomba ded");
             Destroy(gameObject);
         }
     }
@@ -47,7 +50,7 @@ public class EnemyClass : MonoBehaviour
     {
         if (atCorner() || seesWall())
         {
-            Debug.Log("Changing Direction");
+            //Debug.Log("Changing Direction");
             direction = -direction;
             flip();
         }
@@ -69,12 +72,12 @@ public class EnemyClass : MonoBehaviour
 
         if (!lHit.collider && direction <= left)
         {
-            Debug.Log("left corner");
+            //Debug.Log("left corner");
             return true;
         }
         if (!rHit.collider && direction >= right)
         {
-            Debug.Log("right corner");
+            //Debug.Log("right corner");
             return true;
         }
         else return false;
@@ -98,7 +101,7 @@ public class EnemyClass : MonoBehaviour
 
         if (visionLine.collider)
         {
-            Debug.Log("I SEE YOU");
+            //Debug.Log("I SEE YOU");
             return true;
         }
         else return false;
@@ -113,7 +116,7 @@ public class EnemyClass : MonoBehaviour
 
         if (wallVisionLine.collider)
         {
-            Debug.Log("I see a wall");
+            //Debug.Log("I see a wall");
             return true;
         }
         else return false;

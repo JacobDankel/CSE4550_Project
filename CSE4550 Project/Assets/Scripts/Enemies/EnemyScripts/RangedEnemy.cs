@@ -8,6 +8,10 @@ public class RangedEnemy : EnemyClass
     private Transform projectileSpawn;
     [SerializeField]
     private GameObject projectile;
+    [SerializeField]
+    private float attackCooldown = .5f;
+
+    private float lastAttackTime; // Time.time + attackCooldown
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +32,10 @@ public class RangedEnemy : EnemyClass
 
     private void shoot()
     {
-        if (Input.GetButtonDown("Fire1") || seesPlayer())
+        if (seesPlayer() && (Time.time > lastAttackTime))
         {
             Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+            lastAttackTime = Time.time + attackCooldown;
         }
     }
 }

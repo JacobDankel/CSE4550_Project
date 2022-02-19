@@ -19,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private Animator anim;
     private float horizontalMove;
+
+    [SerializeField]
+    private float maxHealth = 3;
+
+    private float currentHealth;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -27,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<Rigidbody2D>();
         capCollider = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
+
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -52,11 +60,11 @@ public class PlayerMovement : MonoBehaviour
         controller.velocity = new Vector2(horizontalMove * speed, controller.velocity.y);
         if(Mathf.Abs(controller.velocity.x) > 0)
         {
-            Debug.Log("Moving Right");
+            //Debug.Log("Moving Right");
         } 
         else if(Mathf.Abs(controller.velocity.x) < 0)
         {
-            Debug.Log("Moving Left");
+            //Debug.Log("Moving Left");
         }
     }
 
@@ -90,10 +98,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /*
-        * Uses two raycasts on either side of the collider to test if it is on the ground. 
-        * jumpCushion is to allow you to jump slightly earlier than sprite hits the ground.
-        * groundLayer is a Layermask so that the Raycast only hits colliders in the "Ground" layer
-        */
+    * Uses two raycasts on either side of the collider to test if it is on the ground. 
+    * jumpCushion is to allow you to jump slightly earlier than sprite hits the ground.
+    * groundLayer is a Layermask so that the Raycast only hits colliders in the "Ground" layer
+    */
     bool IsGrounded()
     {
         Vector3 leftExtent = capCollider.bounds.center + Vector3.left * capCollider.bounds.extents.x; //left center point of capCollider
@@ -108,5 +116,28 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    
+    private void takeDamage(float _damage)
+    {
+        currentHealth -= _damage;
+        //Debug.Log("Current Health is: " + currentHealth);
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    /*
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision);
+        if (collision.tag == "Enemy Damage")
+        {
+            //currentHealth -= collision.GetComponent<EnemyClass>().damage;
+        }
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    */
 }
