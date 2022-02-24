@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimeCounter;
     private bool isJumping;
     private Animator anim;
+    private bool grounded;
     private float horizontalMove;
 
     [SerializeField]
@@ -44,17 +45,12 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal");
         jumping();
 
-        /*
+        
         //Set animator parameters
-        anim.SetBool("RunCharacter", horizontalMove != 0);
-        {
-
-        }
-        */
+        anim.SetBool("Running", horizontalMove != 0);
+        
+        
     }
-
-
-
     void FixedUpdate()
     {
         controller.velocity = new Vector2(horizontalMove * speed, controller.velocity.y);
@@ -95,6 +91,14 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+
+        grounded = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) // unfinished function for ground
+    {
+        if (collision.gameObject.tag == "Ground")
+            grounded = true;
     }
 
     /*
