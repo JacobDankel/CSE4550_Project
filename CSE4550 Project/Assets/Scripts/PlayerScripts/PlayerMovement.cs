@@ -11,15 +11,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private CapsuleCollider2D capCollider;
     [SerializeField]
+    private Animator anim;
+    [SerializeField]
     private LayerMask groundLayer;
     [SerializeField]
     public float speed = 4f, jumpForce = 10f, jumpCushion = 1f, jumpTime = .35f;
 
     private float jumpTimeCounter;
     private bool isJumping;
-    private Animator anim;
-    private bool grounded;
+
     private float horizontalMove;
+    private float direction = 1;
 
     [SerializeField]
     private float maxHealth = 3;
@@ -41,16 +43,34 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
         horizontalMove = Input.GetAxisRaw("Horizontal");
+        if (horizontalMove != 0)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else anim.SetBool("Moving", false);
+        if (horizontalMove > 0)
+        {
+            direction = 1;
+        }
+        if (horizontalMove < 0)
+        {
+            direction = -1;
+        };
+        if (IsGrounded())
+        {
+            anim.SetBool("Grounded", true);
+        }
+        else anim.SetBool("Grounded", false);
+
         jumping();
 
-        
-        //Set animator parameters
-        anim.SetBool("Running", horizontalMove != 0);
-        
-        
+        anim.SetFloat("Speed", horizontalMove);
+        anim.SetFloat("Direction", direction);
     }
+
+
+
     void FixedUpdate()
     {
         controller.velocity = new Vector2(horizontalMove * speed, controller.velocity.y);
@@ -91,14 +111,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
-
-        grounded = false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision) // unfinished function for ground
-    {
-        if (collision.gameObject.tag == "Ground")
-            grounded = true;
     }
 
     /*
