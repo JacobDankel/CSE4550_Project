@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float moveForce = 10f;
 
+    public int maxHealth;
+    public int currentHealth;
+    public HealthBar healthBar;
 
     [SerializeField]
     private float jumpForce = 11f;
@@ -37,12 +40,25 @@ public class Player : MonoBehaviour
 
     }
     // Update is called once per frame
-   void Update()
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
+    void Update()
     {
         PlayerMoveKeyboard();
         AnimatePlayer();
         PlayerJump();
 
+        if(Input.GetKeyDown(KeyCode.Backspace))
+        {
+            TakeDamage(20);
+        }
+    }
+    void TakeDamage(int dmg)
+    {
+        currentHealth -= dmg;
     }
     void PlayerMoveKeyboard()// plsyer movement on the x axis
     {
