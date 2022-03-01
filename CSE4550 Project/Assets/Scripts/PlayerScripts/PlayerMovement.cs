@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
     private CapsuleCollider2D capCollider;
     [SerializeField]
     private Animator anim;
+
+    // HealthBar
+    [SerializeField]
+    private HealthBar healthBar;
+
     [SerializeField]
     private LayerMask groundLayer;
     [SerializeField]
@@ -23,10 +28,9 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMove;
     private float direction = 1;
 
-    [SerializeField]
-    private float maxHealth = 3;
+    public float maxHealth = 3;
 
-    private float currentHealth;
+    public float currentHealth;
 
     // Start is called before the first frame update
     private void Start()
@@ -36,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<Rigidbody2D>();
         capCollider = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
+
+        healthBar.SetMaxHealth(maxHealth);
 
         currentHealth = maxHealth;
     }
@@ -56,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalMove < 0)
         {
             direction = -1;
-        };
+        }
         if (IsGrounded())
         {
             anim.SetBool("Grounded", true);
@@ -74,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         controller.velocity = new Vector2(horizontalMove * speed, controller.velocity.y);
+        /*
         if(Mathf.Abs(controller.velocity.x) > 0)
         {
             //Debug.Log("Moving Right");
@@ -82,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //Debug.Log("Moving Left");
         }
+        */
     }
 
 
@@ -136,6 +144,9 @@ public class PlayerMovement : MonoBehaviour
     {
         currentHealth -= _damage;
         //Debug.Log("Current Health is: " + currentHealth);
+
+        healthBar.SetHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
@@ -156,4 +167,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     */
+
+    public float getCurrentHealth()
+    {
+        return currentHealth;
+    }
 }
