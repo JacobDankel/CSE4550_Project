@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         capCollider = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
 
-        healthBar.SetMaxHealth(maxHealth);
+        //healthBar.SetMaxHealth(maxHealth);
 
         currentHealth = maxHealth;
     }
