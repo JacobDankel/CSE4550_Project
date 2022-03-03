@@ -14,8 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     // HealthBar
-    [SerializeField]
-    private HealthBar healthBar;
+    //[SerializeField]
+    //private HealthBar healthBar;
+    private Inventory inventory;
 
     [SerializeField]
     private LayerMask groundLayer;
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         capCollider = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
 
-        //healthBar.SetMaxHealth(maxHealth);
+        inventory = new Inventory();
 
         currentHealth = maxHealth;
     }
@@ -75,28 +76,20 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("Direction", direction);
     }
 
-
-
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         controller.velocity = new Vector2(horizontalMove * speed, controller.velocity.y);
-        /*
-        if(Mathf.Abs(controller.velocity.x) > 0)
-        {
-            //Debug.Log("Moving Right");
-        } 
-        else if(Mathf.Abs(controller.velocity.x) < 0)
-        {
-            //Debug.Log("Moving Left");
-        }
-        */
     }
 
+    public void pickUpItem(Item item)
+    {
+        inventory.addItem(item);
+    }
 
     /*
     * Lets the player hold the button longer to jump higher. tap jump button = shorter jump.
     */
-    void jumping()
+    private void jumping()
     {
         //initial jump
         if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -143,9 +136,8 @@ public class PlayerMovement : MonoBehaviour
     private void takeDamage(float _damage)
     {
         currentHealth -= _damage;
-        //Debug.Log("Current Health is: " + currentHealth);
 
-        healthBar.SetHealth(currentHealth);
+        //healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
