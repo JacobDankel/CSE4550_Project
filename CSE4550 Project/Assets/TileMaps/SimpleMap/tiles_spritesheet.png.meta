@@ -4093,7 +4093,7 @@ TextureImporter:
         x: 648
         y: 650
         width: 70
-        height: 70
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4103,27 +4103,6 @@ TextureImporter:
       bones: []
       spriteID: 9995e3afa15689a20800000000000000
       internalID: 3069314312594938265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tiles_spritesheet_84
-      rect:
-        serializedVersion: 2
-        x: 648
-        y: 506
-        width: 70
-        height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b2c2f9c1f277e390800000000000000
-      internalID: -7789130647713168720
       vertices: []
       indices: 
       edges: []
@@ -4145,6 +4124,48 @@ TextureImporter:
       bones: []
       spriteID: 29ad7ab1f091d4b40800000000000000
       internalID: 5426020678730504850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles_spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 506
+        width: 70
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2c2f9c1f277e390800000000000000
+      internalID: -7789130647713168720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles_spritesheet_161
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 434
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c3bbdd1c3d344d40800000000000000
+      internalID: 5567642367745045440
       vertices: []
       indices: 
       edges: []

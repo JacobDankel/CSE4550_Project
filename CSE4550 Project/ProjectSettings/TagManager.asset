@@ -20,7 +20,7 @@ TagManager:
   - Ground
   - Damage
   - Enemy Damage
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -45,14 +45,17 @@ TagManager:
   - name: BackGround
     uniqueID: 410618355
     locked: 0
+  - name: Interactable
+    uniqueID: 2642913643
+    locked: 0
+  - name: Ground
+    uniqueID: 3654022427
+    locked: 0
   - name: Characters
     uniqueID: 1459411921
     locked: 0
   - name: Hazards
     uniqueID: 2540835595
-    locked: 0
-  - name: Ground
-    uniqueID: 3654022427
     locked: 0
   - name: Default
     uniqueID: 0

@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // HealthBar
     //[SerializeField]
     //private HealthBar healthBar;
-    private Inventory inventory;
+    public Inventory inventory;
 
     [SerializeField]
     private LayerMask groundLayer;
@@ -87,6 +87,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /*
+     * Not necessarily a bug, but you can hold E and run over stuff and it will work. wasn't responsive with getButtonDown
+     */
+    public bool isInteracting()
+    {
+        if (Input.GetButton("Interact"))
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    /*
     * Lets the player hold the button longer to jump higher. tap jump button = shorter jump.
     */
     private void jumping()
@@ -144,21 +156,6 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision);
-        if (collision.tag == "Enemy Damage")
-        {
-            //currentHealth -= collision.GetComponent<EnemyClass>().damage;
-        }
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
 
     public float getCurrentHealth()
     {
